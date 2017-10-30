@@ -34,6 +34,8 @@ f_undergrads, f_bins = np.histogram(df["F.Undergrad"], bins=p_bins)
 width = (p_bins[1] - p_bins[0]) / 3
 
 fix,ax = plt.subplots()
-ax.bar(p_bins[:-1], p_undergrads, width=width, facecolor='cornflowerblue')
-ax.bar(f_bins[:-1]+width, f_undergrads, width=width, facecolor='seagreen')
+a = ax.bar(p_bins[:-1], p_undergrads, width=width, facecolor='cornflowerblue', label="Part time")
+b = ax.bar(f_bins[:-1]+width, f_undergrads, width=width, facecolor='seagreen', label="Full time")
+
+plt.legend(handles=[a, b], ["f", "p"])
 plt.show()
