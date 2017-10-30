@@ -1,7 +1,9 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from pandas.plotting import scatter_matrix
 from pandas.plotting import boxplot
+
 
 path = "../input/College.csv"
 df = pd.read_csv(path)
@@ -23,4 +25,15 @@ df["Elite"].describe()
 
 outstate_elite = df[["Outstate", "Elite"]]
 outstate_elite.boxplot(by="Elite")
+plt.show()
+
+
+p_undergrads, p_bins = np.histogram(df["P.Undergrad"])
+f_undergrads, f_bins = np.histogram(df["F.Undergrad"], bins=p_bins)
+
+width = (p_bins[1] - p_bins[0]) / 3
+
+fix,ax = plt.subplots()
+ax.bar(p_bins[:-1], p_undergrads, width=width, facecolor='cornflowerblue')
+ax.bar(f_bins[:-1]+width, f_undergrads, width=width, facecolor='seagreen')
 plt.show()
