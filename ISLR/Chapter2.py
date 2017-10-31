@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from pandas.plotting import scatter_matrix
 from pandas.plotting import boxplot
 
-
+#Question 8: College
 path = "../input/College.csv"
 df = pd.read_csv(path)
 
@@ -37,5 +37,18 @@ fix,ax = plt.subplots()
 a = ax.bar(p_bins[:-1], p_undergrads, width=width, facecolor='cornflowerblue', label="Part time")
 b = ax.bar(f_bins[:-1]+width, f_undergrads, width=width, facecolor='seagreen', label="Full time")
 
-plt.legend(handles=[a, b], ["f", "p"])
+plt.legend(handles=[a, b])
 plt.show()
+
+
+#Question 9: Auto
+auto_path = "../input/Auto.csv"
+df = pd.read_csv(auto_path)
+
+#Set rownames equal to the last column "name"
+df = df.set_index(df.columns[-1])
+
+#Replace unknown quantities with NaN and convert to float
+df[["horsepower"]] = df[["horsepower"]].replace("?", np.nan)
+df[["horsepower"]] = df[["horsepower"]].astype(np.float)
+
