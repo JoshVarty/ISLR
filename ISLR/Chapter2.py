@@ -52,3 +52,30 @@ df = df.set_index(df.columns[-1])
 df[["horsepower"]] = df[["horsepower"]].replace("?", np.nan)
 df[["horsepower"]] = df[["horsepower"]].astype(np.float)
 
+desc = df.describe()
+means1 = desc.loc["mean"]
+mins1 = desc.loc["min"]
+maxs1 = desc.loc["max"]
+stds1 = desc.loc["std"]
+
+#Drop 10 to 85
+df2 = df.drop(df.index[10:85])
+desc2 = df2.describe()
+means2 = desc2.loc["mean"]
+mins2 = desc2.loc["min"]
+maxs2 = desc2.loc["max"]
+stds2 = desc2.loc["std"]
+
+print(means1)
+print(means2)
+
+print(mins1)
+print(mins2)
+
+print(maxs1)
+print(maxs2)
+
+print(stds1)
+print(stds2)
+
+
