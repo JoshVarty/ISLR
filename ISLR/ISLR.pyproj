@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>e974383c-12d8-4960-bfd9-14de39713086</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Chapter2.py</StartupFile>
+    <StartupFile>Chapter3.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chapter2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Chapter3.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
